@@ -1,0 +1,236 @@
+/* ================================
+   RESET
+   ================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #2455d6;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   NAVBAR
+   ================================ */
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 7%;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+/* Hide the checkbox.
+   It is used to control the menu with CSS. */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger button */
+.hamburger {
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Menu is hidden until the checkbox is clicked */
+.menu {
+    /* position: absolute; */
+    top: 75px;
+    right: 7%;
+
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+
+    background: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+}
+
+.menu a {
+    color: #2455d6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* CSS-only toggle menu */
+#menu-toggle:checked ~ .menu {
+    display: flex;
+}
+
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
+/* Grid is used because the hero has
+   two main areas: text + statistics. */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+
+    max-width: 1200px;
+    margin: 70px auto;
+    padding: 0 7%;
+
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.eyebrow {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 6vw, 82px);
+    line-height: 0.95;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+}
+
+.hero-text {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+
+/* ================================
+   STATISTICS GRID
+   ================================ */
+
+/* Grid is better here because we specifically
+   need a 2 × 2 arrangement of cards. */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Each card uses Flexbox vertically. */
+.stat-card {
+    display: flex;
+    flex-direction: column;
+
+    /* Distributes the contents vertically. */
+    justify-content: space-between;
+
+    min-height: 250px;
+    padding: 25px;
+
+    background: white;
+    color: #2455d6;
+    border-radius: 12px;
+}
+
+.stat-icon {
+    font-size: 24px;
+}
+
+.stat-number {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.stat-card h2 {
+    font-size: 20px;
+}
+
+.stat-card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ================================
+   FOOTER
+   ================================ */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 25px 7%;
+    margin-top: 80px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+   ================================ */
+
+@media (max-width: 850px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 20px;
+    }
+
+    .hero {
+        padding: 0 20px;
+        margin-top: 30px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: 220px;
+    }
+
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 25px 20px;
+    }
+}
